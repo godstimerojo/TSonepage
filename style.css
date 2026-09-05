@@ -1,0 +1,567 @@
+/* css reset */
+/* Reset CSS by Amaka Ndukwu */
+
+/* making use of :where to allow for low specificity making it easy to override */
+
+/* 1. border-box for box model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. remove default margin 
+padding is optional but i do this because of lists*/
+
+:where(:not(dialog)) {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. great for in-page linking */
+@media (prefers-reduced-motion: no-preference) {
+  :where(html) {
+    scroll-behavior: smooth;
+  }
+}
+
+/* 4. line height and text rendering improvement */
+:where(html) {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. ensure full viewport height */
+:where(html, body) {
+  min-block-size: 100%;
+}
+
+/* 6. improve line wrapping */
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+:where(p) {
+  text-wrap: pretty;
+}
+
+:where(figure) > :where(figcaption) {
+  text-wrap: balance;
+}
+
+:where(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+}
+
+/* 7. making media elements block-level */
+:where(img, svg, video, canvas, picture, audio, iframe, embed, object) {
+  display: block;
+}
+
+:where(img, svg, video, canvas, picture) {
+  block-size: auto;
+  max-inline-size: 100%;
+}
+
+/* 8. inherit font and letter spacing for form controls */
+:where(input, button, textarea, select),
+:where(input[type="file"])::-webkit-file-upload-button {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+/* 9. textarea can only resized vertically and will grow to adjust its content */
+:where(textarea) {
+  resize: vertical;
+  field-sizing: content;
+}
+
+/* 10. table */
+:where(table) {
+  width: fit-content;
+  border-collapse: collapse;
+}
+
+:where(pre) {
+  direction: ltr;
+  max-inline-size: max-content;
+  min-inline-size: 0;
+  white-space: pre;
+  writing-mode: lr;
+}
+
+:where(
+  a[href],
+  area,
+  button,
+  input:not(
+    [type="text"],
+    [type="email"],
+    [type="number"],
+    [type="password"],
+    [type=""],
+    [type="tel"],
+    [type="url"]
+  ),
+  label[for],
+  select,
+  summary,
+  [tabindex]:not([tabindex*="-"], pre)
+) {
+  cursor: pointer;
+}
+
+/*  this will disable additional non-standard gestures such as double-tap to zoom*/
+:where(
+  a[href],
+  area,
+  button,
+  input,
+  label[for],
+  select,
+  summary,
+  textarea,
+  [tabindex]:not([tabindex*="-"])
+) {
+  touch-action: manipulation;
+}
+
+/* my css */
+html {
+  --purple: #2d2641;
+  --gray: #837d88;
+  --black: #2c2830;
+  --white: white;
+  --gray2: #2c2830;
+  --blue: #96a9c6;
+}
+
+html {
+  font-family: "karla", sans-serif;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: "DM Serif Display", serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+header,
+section,
+footer {
+  padding-inline: 165px;
+}
+
+.logo img {
+  width: 110px;
+  height: 18px;
+}
+
+.web-head {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--white);
+  padding-block: 20px;
+  align-items: center;
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+.header-links {
+  display: flex;
+  column-gap: 24px;
+  align-items: center;
+}
+
+.header-links a {
+  text-transform: uppercase;
+  color: var(--gray);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+
+  &:hover {
+    color: var(--gray2);
+  }
+}
+
+.link-btn {
+  border: 1.5px solid #2c2830;
+  padding: 12.5px 28.5px;
+
+  &:hover {
+    background-color: var(--gray2);
+    color: var(--white) !important;
+  }
+}
+
+.hero {
+  padding-top: 6.5rem;
+  display: flex;
+  column-gap: 32px;
+  background-image:
+    url(images/Right\ Background\ Shapes.svg),
+    linear-gradient(to bottom, var(--purple) 80%, var(--white) 20%);
+  background-repeat: no-repeat no-repeat;
+  background-position: top right;
+  background-size: 25%, 100%;
+
+  > div {
+    flex-basis: 50%;
+  }
+}
+
+.hero-left-hand {
+  color: var(--white);
+
+  h1 {
+    line-height: 90%;
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin-top: 65px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin-bottom: 24px;
+  }
+}
+
+.hero-right-hand img {
+  width: 540px;
+  height: 650px;
+  object-fit: cover;
+}
+
+.white-btn {
+  color: var(--white);
+  border: 1.5px solid var(--white);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 12.5px 28.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 115%;
+
+  &:hover {
+    background-color: var(--white);
+    color: var(--purple);
+  }
+}
+
+.left-image-back {
+  position: absolute;
+  top: 75%;
+  left: -60px;
+
+  img {
+    width: 70%;
+  }
+}
+
+.features {
+  margin-top: 150px;
+
+  h2 {
+    margin-top: 65px;
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 90%;
+    letter-spacing: -1px;
+  }
+}
+
+.features-container {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+  margin-top: 96px;
+  margin-bottom: 157px;
+
+  > div {
+    flex: 1;
+
+    > img {
+      background-color: var(--blue);
+      width: 86px;
+      height: 86px;
+      padding: 27px;
+      border-radius: 50%;
+      margin-bottom: 32px;
+    }
+
+    > h3 {
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 135%;
+      letter-spacing: -0.5px;
+    }
+
+    > p {
+      padding-top: 16px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 165%;
+      color: var(--gray);
+    }
+  }
+}
+
+.cta-area {
+  margin-bottom: 150px;
+
+  > div {
+    /* background-image: url(images/Right\ Background\ Shapes.svg), linear-gradient(to bottom, var(--purple) 80%, var(--white) 20%);
+    background-repeat: no-repeat no-repeat;
+    background-position: top right;
+    background-size: 20%, 100%; */
+    background-color: var(--purple);
+    display: flex;
+    justify-content: space-between;
+    padding: 70px 80px;
+    color: var(--white);
+    align-items: center;
+
+    > h2 {
+      font-size: 56px;
+      font-weight: 400;
+      line-height: 100%;
+      letter-spacing: -0.8px;
+      flex-basis: 50%;
+    }
+
+    > a {
+      color: var(--white);
+      border: 1px solid var(--white);
+      padding: 12px 25px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 115%;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: var(--white);
+        color: var(--gray2);
+      }
+    }
+  }
+}
+
+footer {
+  padding-block: 82px;
+
+  > hr {
+    margin-bottom: 48px;
+  }
+}
+
+.footer-head {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 16px;
+    align-items: center;
+
+    > a img:hover {
+      background-color: #2c2830;
+    }
+
+    > a > img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.nav-footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 115%;
+  letter-spacing: 1.5px;
+
+  > nav > p {
+    color: #837d88;
+    margin-bottom: 32px;
+  }
+
+  > nav > ul {
+    list-style-type: none;
+
+    > li {
+      margin-bottom: 16px;
+    }
+
+    > li a {
+      color: #2d2641;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+  }
+
+  .web-head {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-links {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+    cursor: pointer;
+    > img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    margin-bottom: 140px;
+    background-image:
+      url(images/Right\ Background\ Shapes.svg),
+      linear-gradient(to bottom, var(--purple) 100%, var(--white) 0%);
+  }
+
+  .hero-left-hand {
+    padding: 90px 20px;
+    text-align: center;
+
+    h1 {
+      font-size: 48px;
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  .hero-right-hand img {
+    object-fit: contain;
+  }
+
+  header,
+  section,
+  footer {
+    padding: 0;
+  }
+
+  .features {
+    h2 {
+      margin: 0;
+      text-align: center;
+      margin-bottom: 82px;
+    }
+
+    svg {
+      margin: 0 auto;
+      padding-bottom: 41px;
+    }
+  }
+
+  .features-container {
+    display: block;
+    margin-bottom: 0;
+
+    > div {
+      text-align: center;
+      margin-bottom: 52px;
+      padding-inline: 24px;
+
+      > img {
+        margin: 0 auto;
+        margin-bottom: 32px;
+      }
+
+      h3 {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  .cta-area {
+    padding-inline: 24px;
+    margin-bottom: 140px;
+
+    div {
+      display: block;
+      text-align: center;
+      padding: 72px 24px;
+
+      h2 {
+        margin-bottom: 40px;
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: -0.5px;
+      }
+
+      a {
+        padding: 12px 24px;
+      }
+    }
+  }
+
+  footer {
+    padding: 201px 24px;
+
+    > hr {
+      margin-bottom: 40px;
+    }
+  }
+
+  .footer-head {
+    display: block;
+    text-align: center;
+    margin: 0;
+
+    > .logo img {
+      margin-inline: 108px;
+    }
+
+    > div {
+      margin: 0;
+      padding-inline: 92px;
+      margin-top: 32px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .nav-footer-container {
+    display: block;
+
+    > nav ul li {
+      margin-bottom: 0;
+    }
+    > nav {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+  }
+}
