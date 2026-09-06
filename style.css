@@ -444,13 +444,13 @@ footer {
   .hero {
     flex-direction: column-reverse;
     margin-bottom: 140px;
-    background-image:
-      url(images/Right\ Background\ Shapes.svg),
-      linear-gradient(to bottom, var(--purple) 100%, var(--white) 0%);
+    background-color: var(--purple);
+    background-image: none;
+    padding-top: 0;
   }
 
   .hero-left-hand {
-    padding: 90px 20px;
+    padding: 93px 24px;
     text-align: center;
 
     h1 {
@@ -463,7 +463,9 @@ footer {
   }
 
   .hero-right-hand img {
-    object-fit: contain;
+    margin-top: 0;
+    padding: 0;
+    object-fit: cover;
   }
 
   header,
