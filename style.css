@@ -560,6 +560,7 @@ footer {
 
     > nav ul li {
       margin-bottom: 0;
+      margin-bottom: 16px;
     }
     > nav {
       text-align: center;
